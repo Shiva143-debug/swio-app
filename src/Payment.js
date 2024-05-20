@@ -27,8 +27,8 @@ const Payment = ({onCancel}) => {
 
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "500px", border: "1px solid gray", borderRadius: "8px", padding: "20px", backgroundColor: "white" }}>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "500px", borderRadius: "8px", padding: "20px", backgroundColor: "white" }}>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", border: "1px solid gray", borderRadius: "8px", padding: "20px", backgroundColor: "white" }}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderRadius: "8px", padding: "20px", backgroundColor: "white" }}>
 
                 <div style={{ display: "flex" }} class="mb-5">
                     <label class="col-6 " style={{ color: "navy", fontWeight: "bold" }}> Enter Name: </label>
