@@ -191,13 +191,13 @@ const Home = () => {
 
       </div>
 
-      <div className='third-div mt-5'>
+      <div className='third-div mt-5 mb-5'>
 
         <p style={{ color: "blueviolet" }}>CUSTOMIZATION</p>
         <h2 className='heading pt-2'>Countless ways to customize.</h2>
         <p className='para pt-2'>Customization is at the core of the Sleeve experience — choose from any combination of design choices, behaviors and settings to make Sleeve at home on your desktop.</p>
 
-        <center><div class="image-container" >
+        <div class="image-container" >
           <img src="/images/image1.png" alt=" 1" className="img img1" />
           <img src="/images/img2.png" alt=" 2" className="img img2" />
           <img src="/images/img3.png" alt=" 3" className="img img3" />
@@ -208,30 +208,46 @@ const Home = () => {
           <img src="/images/img9.png" alt=" 8" className="img img9" />
           <img src="/images/img8.png" alt=" 8" className="img img8" />
         </div>
-        </center>
+        
 
 
       </div>
 
 
 
-      <div class="m-container" style={{ marginTop: "100px", marginBottom: "50px" }}>
-        <div className='leftside d-flex flex-column ' >
-          <div className='left d-flex flex-column mb-5 pb-2'>
+      <div className='fourth-div mt-5'>
+
+        <div class="l-container mt-5 mb-5">
+          <div className='left'>
             <img src="/images/img9.png" alt=" 7" className="img img9" />
             <h1 class="pb-2 pt-5">Artwork</h1>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Scale artwork all the way up or all the way down. Round the corners or leave them square.</p>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Choose shadow and lighting effects to bring your album artwork to life.</p>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Or hide it completely.</p>
+            <p class="v-para pb-2">Scale artwork all the way up or all the way down. Round the corners or leave them square.</p>
+            <p class="v-para pb-2">Choose shadow and lighting effects to bring your album artwork to life.</p>
+            <p class="v-para pb-2">Or hide it completely.</p>
+          </div>
+          <div className='right d-flex flex-column' >
+            <img src="/images/c-image1.jpg" alt=" 7" className="c-image" />
+            <img src="/images/c-image2.jpg" alt=" 7" className="c-image" />
+            <img src="/images/c-image3.jpg" alt=" 7" className="c-image" />
           </div>
 
+        </div>
+
+        <div class="l-container mt-5 mb-5">
           <div className='left d-flex flex-column mb-5 pb-2'>
             <img src="/images/img6.png" alt=" 7" className="img img9" />
-            <h1 class="pb-2 pt-5" >Typography</h1>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Pick the track info you want to display, and then exactly how to display it.</p>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Choose the fonts, weights, sizes, and transparency to use for each line, along with customizing color and shadow.</p>
-
+            <h1 class="v-para pb-2 pt-5" >Typography</h1>
+            <p class="v-para pb-2">Pick the track info you want to display, and then exactly how to display it.</p>
+            <p class="v-para pb-2">Choose the fonts, weights, sizes, and transparency to use for each line, along with customizing color and shadow.</p>
           </div>
+          <div className='right d-flex flex-column'>
+            <img src="/images/c-image4.jpg" alt=" 7" className="c-image c-image4" />
+            <img src="/images/c-image5.jpg" alt=" 7" className="c-image c-image5" />
+          </div>
+
+        </div>
+
+        <div class="l-container mt-5 mb-5">
           <div className='left d-flex flex-column mb-5 pb-2'>
             <div className='images-3-container mb-5'>
               <img src="/images/img4.png" alt=" 7" className="pic img-1" />
@@ -239,62 +255,47 @@ const Home = () => {
               <img src="/images/img3.png" alt=" 7" className="pic img-3" />
             </div>
 
-            <h1 class="pb-2 pt-5" style={{ marginTop: "50px" }}>Interface</h1>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Customize the layout, alignment and position to fit your setup.</p>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Show and hide playback controls. Add a backdrop layer and customize it.</p>
+            <h1 class="pb-2 pt-5 mt-5" >Interface</h1>
+            <p class="v-para pb-2">Customize the layout, alignment and position to fit your setup.</p>
+            <p class="v-para pb-2">Show and hide playback controls. Add a backdrop layer and customize it.</p>
 
           </div>
+          <div className='right d-flex flex-column' style={{ marginBottom: "120px" }}>
+            <div className="image-stack">
+              <img src="/images/c-image8.jpg" alt=" 7" className="c-image c-image-8" />
+              <img src="/images/c-image9.jpg" alt=" 7" className="c-image c-image-9" />
+            </div>
+          </div>
 
+        </div>
+
+
+        <div class="l-container mb-5">
           <div className='left d-flex flex-column mb-5 pb-2'>
-            <div className='images-3-container mt-5'>
+            <div className='images-3-container mt-5 mb-5'>
               <img src="/images/img2.png" alt=" 7" className="c-imagepic img-1" />
               <img src="/images/image1.png" alt=" 7" className="c-imagepic img-2" />
               <img src="/images/img8.png" alt=" 7" className="c-imagepic img-3" />
             </div>
 
-            <h1 class="pb-2 pt-2" style={{ marginTop: "150px" }}>Settings</h1>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Decide if Sleeve stays out of the way, behind windows, or in front of them — or only when you need to see it.</p>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Show it in the Dock, choose from custom icons, or keep it on the Desktop only.</p>
-            <p class="pb-2" style={{ maxWidth: "350px", fontSize: "24px" }}>Set your custom keyboard shortcuts and integrate with the apps you use.</p>
+            <h1 class="pb-2 pt-2 mt-5" >Settings</h1>
+            <p class="v-para pb-2">Decide if Sleeve stays out of the way, behind windows, or in front of them — or only when you need to see it.</p>
+            <p class="v-para pb-2">Show it in the Dock, choose from custom icons, or keep it on the Desktop only.</p>
+            <p class="v-para pb-2">Set your custom keyboard shortcuts and integrate with the apps you use.</p>
 
           </div>
-        </div>
 
-
-        <div className="container-v">
-          <div className='rightside d-flex flex-column mb-5'>
-            <div className='right d-flex flex-column' >
-              <img src="/images/c-image1.jpg" alt=" 7" className="c-image" />
-              <img src="/images/c-image2.jpg" alt=" 7" className="c-image" />
-              <img src="/images/c-image3.jpg" alt=" 7" className="c-image" />
-            </div>
-
-            <div className='right d-flex flex-column'>
-              <img src="/images/c-image4.jpg" alt=" 7" className="c-image c-image4" />
-              <img src="/images/c-image5.jpg" alt=" 7" className="c-image c-image5" />
-
-            </div>
-
-            <div className='right d-flex flex-column' style={{ marginBottom: "120px" }}>
-              <div className="image-stack">
-                <img src="/images/c-image8.jpg" alt=" 7" className="c-image c-image-8" />
-                <img src="/images/c-image9.jpg" alt=" 7" className="c-image c-image-9" />
-              </div>
-            </div>
-
-            <div className='right d-flex flex-column' style={{ marginTop: "100px" }}>
-              <div className="image-stack2">
-                <img src="/images/c-image10.jpg" alt=" 7" className="c-image c-image-10" />
-                <img src="/images/c-image11.jpg" alt=" 7" className="c-image c-image-11" />
-                <img src="/images/c-image12.jpg" alt=" 7" className="c-image c-image-12" />
-              </div>
+          <div className='right d-flex flex-column'>
+            <div className="image-stack2">
+              <img src="/images/c-image10.jpg" alt=" 7" className="c-image c-image-10" />
+              <img src="/images/c-image11.jpg" alt=" 7" className="c-image c-image-11" />
+              <img src="/images/c-image12.jpg" alt=" 7" className="c-image c-image-12" />
             </div>
           </div>
-        </div>
 
+        </div>
 
       </div>
-
 
 
       <div className="songs-container mt-5" >
@@ -305,7 +306,7 @@ const Home = () => {
 
         <div className="cards-cs-spotify-container" >
           <div className='card-cs'>
-            <img src="/images/cs.png" alt="spotify" className="cs" />
+            <img src="/images/cs.png" alt="cs" className="cs" />
             <p style={{ maxWidth: "500px", fontSize: "24px", textAlign: 'center', color: 'brown' }}>Sleeve integrates with Last.fm so you never miss a track. Simply sign in and start scrobbling.</p>
             <p style={{ color: "brown", textAlign: 'center' }}>Last.fm account required</p>
 
@@ -332,6 +333,9 @@ const Home = () => {
         </div>
 
       </div>
+
+  
+
 
 
       <Dialog header="Header" visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}>
