@@ -56,12 +56,7 @@ const TransactionDetails = () => {
                     <label className="col-4" style={{ color: "navy", fontWeight: "bold" }}>Amount:</label>
                     <input className="form-control" type="text" name="amount" value={amount} disabled />
                 </div>
-                <div style={{ display: "flex" }} className="mb-3">
-                    <label className="col-4" style={{ color: "navy", fontWeight: "bold" }}>Payment Method:</label>
-                    <select className="form-control">
-                        <option value="card">Credit Card</option>
-                    </select>
-                </div>
+            
                 <div style={{ display: "flex" }} className="mb-5">
                     <label className="col-4" style={{ color: "navy", fontWeight: "bold" }}>Transaction ID:</label>
                     <input className="form-control" type="text" name="transaction" value={transaction} disabled />
