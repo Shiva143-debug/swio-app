@@ -18,7 +18,7 @@ const TransactionDetails = () => {
         const headers = { "Content-Type": "application/json" };
 
         try {
-            const response = await fetch('https://invited-sweet-alphabet.glitch.me/create-payment', {
+            const response = await fetch('https://backend-exp.onrender.com/create-payment', {
                 method: "POST",
                 headers: headers,
                 body: JSON.stringify(values)

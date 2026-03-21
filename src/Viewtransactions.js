@@ -13,7 +13,7 @@ const Viewtransactions = () => {
     }
 
     useEffect(() => {
-        fetch('https://invited-sweet-alphabet.glitch.me/getpayment')
+        fetch('https://backend-exp.onrender.com/getpayment')
             .then(res => res.json())
             .then(data => setTransactions(data)
 

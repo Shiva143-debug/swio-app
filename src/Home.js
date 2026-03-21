@@ -5,7 +5,7 @@ import { IoPlaySkipForward } from "react-icons/io5";
 import { IoPlaySkipBackSharp } from "react-icons/io5";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaApple } from "react-icons/fa";
-import { LuArrowRightCircle } from "react-icons/lu";
+import { LuCircleArrowRight  } from "react-icons/lu";
 import { useNavigate } from 'react-router-dom';
 import { Dialog } from 'primereact/dialog';
 import { useState } from "react"
@@ -62,7 +62,7 @@ const Home = () => {
           <p className='para-of-mobile px-2'>
             Sleeve 2.3 now available
           </p>
-          <LuArrowRightCircle size={40} onClick={handleClick} style={{ cursor: 'pointer' }} />
+          <LuCircleArrowRight  size={40} onClick={handleClick} style={{ cursor: 'pointer' }} />
         </div>
 
       </div>
