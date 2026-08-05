@@ -1,11 +1,11 @@
-import Home from "./Home"
+import Home from "./Components/Home"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 // import Payment from "./Payment"
-import TransactionDetails from "./TransactionDetails"
-import Viewtransactions from "./Viewtransactions"
-import Success from "./Success"
-import Failure from "./Failure"
+import TransactionDetails from "./Components/TransactionDetails"
+import Viewtransactions from "./Components/Viewtransactions"
+import Success from "./Components/Success"
+import Failure from "./Components/Failure"
 
 const App=()=>{
   return(

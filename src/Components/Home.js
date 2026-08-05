@@ -1,5 +1,5 @@
 
-import './App.css';
+import '../App.css';
 import { FaPause } from "react-icons/fa6";
 import { IoPlaySkipForward } from "react-icons/io5";
 import { IoPlaySkipBackSharp } from "react-icons/io5";
@@ -338,7 +338,16 @@ const Home = () => {
 
 
 
-      <Dialog header="Header" visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}>
+      <Dialog
+        visible={visible}
+        onHide={() => setVisible(false)}
+        showHeader={false}
+        className="pay-dialog-panel"
+        contentClassName="pay-dialog-shell"
+        maskClassName="pay-dialog-mask"
+        style={{ width: '420px', maxWidth: '92vw', background: 'transparent', border: 'none', boxShadow: 'none' }}
+        breakpoints={{ '960px': '92vw' }}
+      >
         <Payment onCancel={() => setVisible(false)} />
       </Dialog>
     </div>

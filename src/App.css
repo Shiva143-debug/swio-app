@@ -1073,3 +1073,737 @@ body {
   }
 
 }
+
+/* ============ PAYMENT FLOW ============ */
+
+.pay-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(83, 136, 196, 0.22), transparent 60%),
+    radial-gradient(1000px 600px at 80% 90%, rgba(113, 179, 87, 0.18), transparent 60%),
+    #0b0d12;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.pay-card {
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  text-align: center;
+  color: #eef2ff;
+}
+
+.pay-dialog {
+  position: relative;
+  padding: 2.75rem 2rem 2rem;
+}
+
+.pay-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pay-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.pay-icon,
+.td-icon,
+.result-icon {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #fff;
+  background: linear-gradient(135deg, #71b357, rgb(83, 136, 196));
+  box-shadow: 0 12px 30px rgba(83, 136, 196, 0.35);
+}
+
+.pay-page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.pay-page-subtitle {
+  color: #9aa5b8;
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* Payment form */
+.pay-form {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.pay-field {
+  margin-bottom: 1.4rem;
+}
+
+.pay-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aa5b8;
+  margin-bottom: 0.5rem;
+}
+
+.pay-input-wrap {
+  position: relative;
+}
+
+.pay-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.pay-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.pay-input::placeholder {
+  color: #5b6472;
+}
+
+.pay-input:focus {
+  outline: none;
+  border-color: rgb(83, 136, 196);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(83, 136, 196, 0.25);
+}
+
+.pay-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #8b94a6;
+  margin: 1.5rem 0 0;
+}
+
+.pay-note-icon {
+  color: #71b357;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.pay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.pay-btn-primary {
+  background: linear-gradient(135deg, #71b357, rgb(83, 136, 196));
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(83, 136, 196, 0.4);
+}
+
+.pay-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(83, 136, 196, 0.5);
+  filter: brightness(1.06);
+}
+
+.pay-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pay-btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pay-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.pay-btn-ghost:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pay-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.pay-buttons .pay-btn {
+  flex: 1;
+}
+
+/* Transaction details */
+.td-card {
+  max-width: 520px;
+}
+
+.td-summary {
+  margin-top: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.td-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: left;
+}
+
+.td-row + .td-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.td-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  color: #9aa5b8;
+  flex-shrink: 0;
+}
+
+.td-label svg {
+  color: #71b357;
+}
+
+.td-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  word-break: break-word;
+  text-align: right;
+}
+
+.td-amount {
+  font-size: 1.25rem;
+  background: linear-gradient(135deg, #71b357, rgb(83, 136, 196));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.td-id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.td-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  color: #fca5a5;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.td-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.td-actions .pay-btn {
+  flex: 1;
+}
+
+.pay-secure-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #8b94a6;
+}
+
+.pay-secure-note svg {
+  color: #71b357;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: pay-spin 0.8s linear infinite;
+}
+
+@keyframes pay-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Result pages (success / failure) */
+.result-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.result-success {
+  background:
+    radial-gradient(1100px 600px at 30% 20%, rgba(113, 179, 87, 0.25), transparent 60%),
+    radial-gradient(900px 500px at 75% 85%, rgba(83, 136, 196, 0.18), transparent 60%),
+    #0b0d12;
+}
+
+.result-failure {
+  background:
+    radial-gradient(1100px 600px at 30% 20%, rgba(220, 38, 38, 0.22), transparent 60%),
+    radial-gradient(900px 500px at 75% 85%, rgba(83, 136, 196, 0.15), transparent 60%),
+    #0b0d12;
+}
+
+.result-card {
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2.75rem 2.5rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  text-align: center;
+  color: #eef2ff;
+}
+
+.result-success .result-icon {
+  background: linear-gradient(135deg, #22c55e, #71b357);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.4);
+  animation: result-pop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.result-failure .result-icon {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.4);
+  animation: result-pop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+@keyframes result-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.result-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.result-subtitle {
+  color: #9aa5b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0.75rem 0 0;
+}
+
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.result-failure .result-badge {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #f87171;
+}
+
+.result-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.result-actions .pay-btn {
+  flex: 1;
+}
+
+/* View transactions */
+.vt-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem 2rem 4rem;
+  background:
+    radial-gradient(1200px 600px at 15% 5%, rgba(83, 136, 196, 0.2), transparent 60%),
+    radial-gradient(1000px 500px at 90% 95%, rgba(113, 179, 87, 0.16), transparent 60%),
+    #0b0d12;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  color: #eef2ff;
+}
+
+.vt-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 960px;
+  margin: 0 auto 2rem;
+}
+
+.vt-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.vt-header p {
+  margin: 0.25rem 0 0;
+  color: #9aa5b8;
+}
+
+.vt-back {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.vt-back:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateX(-3px);
+}
+
+.vt-stats {
+  display: flex;
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto 2rem;
+}
+
+.vt-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vt-stat span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9aa5b8;
+}
+
+.vt-stat strong {
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, #71b357, rgb(83, 136, 196));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.vt-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.5);
+}
+
+.vt-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.vt-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, #71b357, rgb(83, 136, 196));
+  font-size: 1.1rem;
+}
+
+.vt-card-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.vt-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vt-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: #8b94a6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vt-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.vt-status-success {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+}
+
+.vt-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+.vt-amount-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9aa5b8;
+}
+
+.vt-amount {
+  font-size: 1.35rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #71b357, rgb(83, 136, 196));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vt-loading,
+.vt-empty {
+  max-width: 960px;
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: #9aa5b8;
+  padding: 3rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.vt-empty {
+  flex-direction: column;
+  font-size: 1.1rem;
+}
+
+.vt-empty svg {
+  font-size: 2.5rem;
+  color: #5b6472;
+}
+
+.vt-spin {
+  animation: pay-spin 0.9s linear infinite;
+}
+
+.vt-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .pay-page {
+    padding: 1.25rem;
+  }
+
+  .pay-card,
+  .result-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .vt-page {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .vt-stats {
+    flex-direction: column;
+  }
+
+  .vt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .td-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .td-value {
+    text-align: left;
+  }
+
+  .result-actions {
+    flex-direction: column;
+  }
+}
+
+/* PrimeReact Dialog shell for the payment dialog */
+.pay-dialog-shell .p-dialog-content {
+  background: transparent;
+  border-radius: 24px;
+  overflow: visible;
+}
+
+.pay-dialog-shell .p-dialog-header {
+  display: none;
+}
+
+.p-dialog.pay-dialog-panel {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.p-dialog-mask.pay-dialog-mask {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(8, 10, 14, 0.45);
+}
